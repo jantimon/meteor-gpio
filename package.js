@@ -1,22 +1,22 @@
+'use strict';
+
 Package.describe({
   name: 'jantimon:gpio',
-  version: '0.0.1',
-  // Brief, one-line summary of the package.
-  summary: '',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
-  documentation: 'README.md'
+  summary: 'Getting and setting GPIO values for Raspberry Pi / Odroid / BeagleBone gpio',
+  version: '0.1.0',
+  git: 'https://github.com/jantimon/meteor-gpio'
 });
 
 Package.onUse(function(api) {
-//  api.versionsFrom('1.1.0.2');
-  api.addFiles('gpio.js');
+  api.versionsFrom('1.0.1');
+  api.use(['meteor', 'meteorhacks:async']);
+  api.addFiles('client/index.js', ['client']);
+  api.addFiles('server/index.js', ['server']);
+  api.export('gpio');
 });
 
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('jantimon:gpio');
-  api.addFiles('gpio-tests.js');
+Npm.depends({
+  'onoff': '1.0.2',
+  'eventemitter3': '1.1.0'
 });
+
