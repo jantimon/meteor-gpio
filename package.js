@@ -9,7 +9,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0.1');
-  api.use(['meteor', 'meteorhacks:async']);
+  api.use(['meteor', 'meteorhacks:async@1.0.0']);
   api.addFiles('client/index.js', ['client']);
   api.addFiles('server/index.js', ['server']);
   api.export('gpio');
